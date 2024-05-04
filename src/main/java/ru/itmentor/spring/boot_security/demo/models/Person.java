@@ -1,6 +1,7 @@
-package ak.spreeng.demo.models;
+package ru.itmentor.spring.boot_security.demo.models;
 
-import jakarta.persistence.*;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "users")

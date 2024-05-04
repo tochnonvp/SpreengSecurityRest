@@ -1,24 +1,23 @@
-package ak.spreeng.demo.security;
+package ru.itmentor.spring.boot_security.demo.security;
 
-import ak.spreeng.demo.models.Person;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
+import ru.itmentor.spring.boot_security.demo.models.Person;
 
 import java.util.Collection;
+import java.util.List;
 
 public class PersonDetails implements UserDetails {
 
-    private  final Person person;
+    private final Person person;
 
     public PersonDetails(Person person) {
         this.person = person;
     }
 
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return List.of();
     }
 
     @Override
@@ -49,5 +48,9 @@ public class PersonDetails implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public Person getPerson(){
+        return this.person;
     }
 }
