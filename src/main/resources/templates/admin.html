@@ -13,6 +13,7 @@
             <th scope="col">Имя</th>
             <th scope="col">Фамилия</th>
             <th scope="col">Возраст</th>
+            <th scope="col">Role</th>
             <th scope="col">Actions</th>
         </tr>
         </thead>
@@ -23,6 +24,7 @@
             <td th:text="${user.getName()}">
             <td th:text="${user.getSurname()}">
             <td th:text="${user.getAge()}">
+            <td th:text="${user.getRole()}">
             <td>
                 <!-- Форма для удаления пользователя -->
                 <form method="post" th:action="@{/admin/delete/{userId}(userId=${user.id})}">

@@ -6,8 +6,45 @@
 </head>
 <body>
 <div>
-    <h1>Edit User</h1>
-    <form method="post" th:action="@{/admin/edit/{id}(id=${user.id})}" th:object="${user}">
+<!--    <h1>Edit User</h1>-->
+<!--    <form method="post" th:action="@{/admin/edit/{id}(id=${user.id})}" th:object="${user}">-->
+<!--        <div th:if="${user}">-->
+<!--            <table>-->
+<!--                <tr th:if="${user.id}">-->
+<!--                    <td>ID:</td>-->
+<!--                    <td th:text="${user.id}"></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td><label for="name">Name</label></td>-->
+<!--                    <td><input type="text" id="name" th:field="*{name}"/></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td><label for="surname">Surname</label></td>-->
+<!--                    <td><input type="text" id="surname" th:field="*{surname}"/></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td><label for="age">Age</label></td>-->
+<!--                    <td><input type="text" id="age" th:field="*{age}"/></td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td><label for="role">Role</label></td>-->
+<!--                    <td>-->
+<!--                        <select id="role" th:field="*{role}">-->
+<!--                            <option value="USER" th:selected="${user.role == 'USER'}">User</option>-->
+<!--                            <option value="ADMIN" th:selected="${user.role == 'ADMIN'}">Admin</option>-->
+<!--                        </select>-->
+<!--                    </td>-->
+<!--                </tr>-->
+<!--            </table>-->
+<!--        </div>-->
+<!--&lt;!&ndash;        <input type="submit" value="Save"/>&ndash;&gt;-->
+<!--        <form method="post" th:action="@{/admin/save/{userId}(userId=${user.id})}">-->
+<!--            <button type="submit">save</button>-->
+<!--        </form>-->
+<!--    </form>-->
+
+
+    <form method="post" th:action="@{/admin/save/{id}(id=${user.id})}" th:object="${user}">
         <div th:if="${user}">
             <table>
                 <tr th:if="${user.id}">
@@ -30,19 +67,15 @@
                     <td><label for="role">Role</label></td>
                     <td>
                         <select id="role" th:field="*{role}">
-                            <option value="USER" th:selected="${user.role == 'USER'}">User</option>
-                            <option value="ADMIN" th:selected="${user.role == 'ADMIN'}">Admin</option>
+                            <option value="ROLE_USER" th:selected="${user.role == 'ROLE_USER'}">USER</option>
+                            <option value="ROLE_ADMIN" th:selected="${user.role == 'ROLE_ADMIN'}">ADMIN</option>
                         </select>
                     </td>
                 </tr>
             </table>
         </div>
-<!--        <input type="submit" value="Save"/>-->
-        <form method="post" th:action="@{/admin/save/{userId}(userId=${user.id})}">
-            <button type="submit">save</button>
-        </form>
+        <input type="submit" value="Save"/> <!-- Кнопка сохранения -->
     </form>
 </div>
-GGGGG
 </body>
 </html>

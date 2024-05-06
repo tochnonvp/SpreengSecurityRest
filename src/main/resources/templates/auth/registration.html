@@ -12,7 +12,7 @@
          th:errors="*{name}">Username Error</div>
     <br/>
     <label for="surname">Введите фамилию пользователя</label>
-    <input type="text" th:field="*{name}" id="surname">
+    <input type="text" th:field="*{surname}" id="surname">
     <div style="color: red" th:if="${#fields.hasErrors('surname')}"
          th:errors="*{surname}">User surname Error</div>
     <br/>
@@ -24,7 +24,7 @@
     <label for="password">Введите пароль</label>
     <input type="text" th:field="*{password}" id="password">
     <div style="color: red" th:if="${#fields.hasErrors('password')}"
-         th:errors="*{password}">Year</div>
+         th:errors="*{password}">Password Error</div>
     <br/>
     <input type="submit" value="Sign up"/>
 </form>

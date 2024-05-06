@@ -30,15 +30,17 @@ public class PersonService {
 
 
     public void updateUser(Person updatedPerson, Long userId) {
-        Person personToBeUpdate = entityManager.find(Person.class, userId);
-
-        personToBeUpdate.setRole(updatedPerson.getRole());
-        personToBeUpdate.setName(updatedPerson.getName());
-        personToBeUpdate.setSurname(updatedPerson.getSurname());
-        personToBeUpdate.setAge(updatedPerson.getAge());
-
-//        entityManager.persist(personToBeUpdate);
-//        personRepository.save(updatedPerson);
+        Optional<Person> optionalPerson = personRepository.findById(userId);
+        if (optionalPerson.isPresent()) {
+            Person personToBeUpdate = optionalPerson.get();
+            personToBeUpdate.setRole(updatedPerson.getRole());
+            personToBeUpdate.setName(updatedPerson.getName());
+            personToBeUpdate.setSurname(updatedPerson.getSurname());
+            personToBeUpdate.setAge(updatedPerson.getAge());
+            personRepository.save(personToBeUpdate); // Обновление данных пользователя в базе данных
+        } else {
+            // Обработка ситуации, когда пользователь с указанным id не найден
+        }
     }
 }
 

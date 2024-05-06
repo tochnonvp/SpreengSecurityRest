@@ -4,6 +4,7 @@ package ru.itmentor.spring.boot_security.demo.controllers;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import ru.itmentor.spring.boot_security.demo.models.Person;
@@ -50,11 +51,14 @@ public class AdminController {
 
     // Метод для обновления данных пользователя
     @PostMapping("/edit/{id}")
-    public String editUser(@ModelAttribute("user") Person person, @PathVariable("id") Long id) {
-
+    public String editUser(Model model, @PathVariable("id") Long id) {
+        Person user = personRepository.findById(id).orElse(null);
+        if (user != null) {
+            model.addAttribute("user", user);
+        }
         return "/edit";
-
     }
+
     @PostMapping("/save/{id}")
     public String save(@ModelAttribute("user") Person person, @PathVariable("id") Long id) {
         person.setId(id);
