@@ -23,8 +23,11 @@ public class HelloController {
 
     private final PersonRepositoryImpl personRepository;
 
-    public HelloController(PersonRepositoryImpl personRepository) {
+    private final PersonService personService;
+
+    public HelloController(PersonRepositoryImpl personRepository, PersonService personService) {
         this.personRepository = personRepository;
+        this.personService = personService;
     }
 
 
@@ -41,8 +44,6 @@ public class HelloController {
         return "hello";
     }
 
-    @Autowired
-    private PersonService personService;
 
     @GetMapping("/profile")
     public String userProfile(Model model, Principal principal) {
