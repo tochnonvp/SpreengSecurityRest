@@ -35,7 +35,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin().loginPage("/auth/login")
                 .loginProcessingUrl("/process_login")
-                .defaultSuccessUrl("/hello", true)
+                .successHandler(new CustomAuthenticationSuccessHandler())
+//                .defaultSuccessUrl("/hello", true)
                 .failureUrl("/auth/login?error=true")
                 .and()
                 .logout().logoutUrl("/logout")
@@ -45,6 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(personDetailsService)
+
                 .passwordEncoder(getPasswordEncoder());
     }
 

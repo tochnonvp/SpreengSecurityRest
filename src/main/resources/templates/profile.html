@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+
+</head>
+<body>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Имя</th>
+        <th scope="col">Фамилия</th>
+        <th scope="col">Возраст</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${user}">
+
+        <td th:text="${user.getId()}">
+        <td th:text="${user.getName()}">
+        <td th:text="${user.getSurname()}">
+        <td th:text="${user.getAge()}">
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="/logout">Logout</a>
+</table>
+</body>
+</html>
