@@ -24,15 +24,5 @@ public class PersonRepositoryImpl  {
         return entityManager.createQuery("FROM Person ", Person.class).getResultList();
     }
 
-//    @Override
-//    public void saveUser(Person user) {
-//        entityManager.persist(user);
-//    }
-//
-//    @Override
-//    public void updateUser(Person user) {
-//        entityManager.merge(user);
-//    }
-
 }
 
